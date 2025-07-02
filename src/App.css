@@ -154,10 +154,12 @@ header h1 {
     font-size: 1rem;
     margin-bottom: 10px;
     max-width: 300px;
+    height: 38px; 
   }
   .search-bar button {
     width: 100%;
     max-width: 300px;
-    padding: 10px;
+    padding: 8px;
+    height: 38px; 
   }
 }
