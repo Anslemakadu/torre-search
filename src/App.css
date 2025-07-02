@@ -147,17 +147,17 @@ header h1 {
     align-items: center;
   }
 
-  /* Now we give input and button full width safely for mobile only */
+  /*  Keep input narrow and centered like desktop */
   .search-bar input{
-    width: 90%;
+    width: auto;    
     padding: 10px;
     font-size: 1rem;
-    box-sizing: border-box;
     max-width: 300px;
+    min-width: 200px;
     margin-bottom: 10px;
   }
   .search-bar button {
-    width: fit-content;
+    width: auto;
     max-width: 300px;
     padding: 10px 16px;
   }
