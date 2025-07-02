@@ -1,3 +1,4 @@
+/*  Base Layout & Reset  */
 body {
   margin: 0;
   padding: 0;
@@ -14,14 +15,17 @@ body {
   text-align: center;
   width: 90%;
   max-width: 600px;
+  margin: 0 auto;
 }
 
+/*  Heading Style  */
 header h1 {
   margin-bottom: 20px;
   font-size: 2.2rem;
   color: #00bcd4;
 }
 
+/*  Search Bar Layout  */
 .search-bar {
   display: flex;
   flex-wrap: wrap;
@@ -56,6 +60,7 @@ header h1 {
   transform: scale(1.05);
 }
 
+/*  Results Section  */
 .results ul {
   list-style: none;
   padding: 0;
@@ -74,6 +79,7 @@ header h1 {
   transform: scale(1.02);
 }
 
+/*  Skill Badges  */
 .skill-badge {
   display: inline-block;
   background-color: #333;
@@ -89,6 +95,7 @@ header h1 {
   background-color: #00bcd4;
 }
 
+/*  Error and Loader  */
 .error-text {
   color: #f44336;
 }
@@ -103,15 +110,39 @@ header h1 {
   animation: spin 1s linear infinite;
 }
 
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*  Main Container Styling  */
 .container {
   max-width: 700px;
   margin: 0 auto;
   padding: 1rem;
 }
 
+@media (max-width: 600px) {
+  /* Make results section centered */
+  .results {
+    text-align: center;
+  }
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
+  /* But keep result list items readable and aligned left */
+  .results li {
+    text-align: left;
+  }
+
+  /* Make input and button go full width on narrow screens */
+  .search-bar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-bar input,
+  .search-bar button {
+    width: 100%;
+    max-width: 400px;
   }
 }

@@ -102,7 +102,7 @@ function App() {
       {/* 🔧 This container centers everything and gives max width on larger screens */}
       <div className="container">
         <header>
-          <h1>Torre AI People Search</h1>
+          <h1>Torre.ai People Search</h1>
         </header>
         <main>
           <div className="search-bar">
