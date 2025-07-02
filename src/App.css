@@ -145,20 +145,19 @@ header h1 {
   .search-bar {
     flex-direction: column;
     align-items: center;
+    max-width: 300px;
   }
 
   /*  Keep input narrow and centered like desktop */
   .search-bar input{
-    width: auto;    
-    padding: 10px;
+    width: 100%;    
     font-size: 1rem;
-    max-width: 300px;
-    min-width: 200px;
     margin-bottom: 10px;
+    max-width: 300px;
   }
   .search-bar button {
-    width: auto;
+    width: 100%;
     max-width: 300px;
-    padding: 10px 16px;
+    padding: 10px;
   }
 }
