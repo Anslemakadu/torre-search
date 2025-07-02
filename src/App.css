@@ -26,38 +26,40 @@ header h1 {
   color: #00bcd4;
 }
 
-/*  Search Bar Layout  */
+/*  Search Bar Layout - Compact sizing */
 .search-bar {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   gap: 8px;
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
+  max-width: 450px;
 }
 
-/*  Input stays compact and responsive on desktop */
+/*  Compact input styling */
 .search-bar input {
-  flex: 1 1 200px;
-  padding: 10px;
-  font-size: 1rem;
+  width: 300px; /* Fixed width for desktop */
+  padding: 6px 12px; /* Reduced padding */
+  font-size: 0.9rem; /* Slightly smaller font */
   border-radius: 4px;
   border: 1px solid #333;
   background-color: #1e1e1e;
   color: #fff;
-  width: auto; /* ⛑ Fix: Prevents 100% width from leaking onto desktop */
-  max-width: 100%;
+  height: 34px; /* Fixed height */
+  box-sizing: border-box; /* Include padding in height calculation */
 }
 
-/*  Button matches layout and look */
+/*  Compact button styling */
 .search-bar button {
-  padding: 10px 16px;
-  font-size: 1rem;
+  padding: 6px 14px; /* Reduced padding */
+  font-size: 0.9rem; /* Slightly smaller font */
   background-color: #00bcd4;
   border: none;
   border-radius: 4px;
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  height: 34px; /* Fixed height to match input */
+  box-sizing: border-box; /* Include padding in height */
 }
 
 /*  Button hover effect */
@@ -148,18 +150,19 @@ header h1 {
     max-width: 300px;
   }
 
-  /*  Keep input narrow and centered like desktop */
-  .search-bar input{
-    width: 100%;    
-    font-size: 1rem;
+  /*  Keep input narrow and centered */
+  .search-bar input {
+    width: 100%;
+    font-size: 0.9rem; /* Match desktop font size */
     margin-bottom: 10px;
     max-width: 300px;
-    height: 38px; 
+    height: 34px; /* Consistent height */
   }
+  
   .search-bar button {
     width: 100%;
     max-width: 300px;
-    padding: 8px;
-    height: 38px; 
+    padding: 6px; /* Consistent padding */
+    height: 34px; /* Consistent height */
   }
 }
