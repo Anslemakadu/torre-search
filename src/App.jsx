@@ -99,43 +99,66 @@ function App() {
 
   return (
     <div className="app-container">
-      <header>
-        <h1>Torre AI People Search</h1>
-      </header>
-      <main>
-        <div className="search-bar">
-          <input
-            type="text"
-            placeholder="Enter a name..."
-            value={query}
-            onChange={(e) => {
-              // Update the search box text as I type
-              setQuery(e.target.value);
-            }}
-          />
-          <button onClick={handleSearch}>Search</button>
-        </div>
+      {/* 🔧 This container centers everything and gives max width on larger screens */}
+      <div className="container">
+        <header>
+          <h1>Torre AI People Search</h1>
+        </header>
+        <main>
+          <div className="search-bar">
+            <input
+              type="text"
+              placeholder="Enter a name..."
+              value={query}
+              onChange={(e) => {
+                // Update the search box text as I type
+                setQuery(e.target.value);
+              }}
+            />
+            <button onClick={handleSearch}>Search</button>
+          </div>
 
-        <div className="results">
-          {/* Show red message if trying to search without typing */}
-          {emptySearch && (
-            <p className="error-text">
-              Please enter a name before searching.
-            </p>
-          )}
-
-          {/* Show a spinner while loading */}
-          {loading && <div className="loader"></div>}
-
-          {/* Show this if no results found (and not loading) */}
-          {noResults && !loading && (
-            <>
-              <p>
-                Sorry, no results found for <strong>{lastQuery}</strong>.
+          <div className="results">
+            {/* Show red message if trying to search without typing */}
+            {emptySearch && (
+              <p className="error-text">
+                Please enter a name before searching.
               </p>
-              <p>Here are some profiles you might be interested in:</p>
+            )}
+
+            {/* Show a spinner while loading */}
+            {loading && <div className="loader"></div>}
+
+            {/* Show this if no results found (and not loading) */}
+            {noResults && !loading && (
+              <>
+                <p>
+                  Sorry, no results found for <strong>{lastQuery}</strong>.
+                </p>
+                <p>Here are some profiles you might be interested in:</p>
+                <ul>
+                  {mockResults.map((person, index) => (
+                    <li key={index}>
+                      <strong>{person.name}</strong> - {person.professionalHeadline}
+                      <br />
+                      {person.location}
+                      <div className="skills">
+                        {person.skills.map((skill, i) => (
+                          <span key={i} className="skill-badge">
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+
+            {/* Show results if we have them and not loading */}
+            {!noResults && results.length > 0 && !loading && (
               <ul>
-                {mockResults.map((person, index) => (
+                {results.map((person, index) => (
                   <li key={index}>
                     <strong>{person.name}</strong> - {person.professionalHeadline}
                     <br />
@@ -150,38 +173,18 @@ function App() {
                   </li>
                 ))}
               </ul>
-            </>
-          )}
+            )}
 
-          {/* Show results if we have them and not loading */}
-          {!noResults && results.length > 0 && !loading && (
-            <ul>
-              {results.map((person, index) => (
-                <li key={index}>
-                  <strong>{person.name}</strong> - {person.professionalHeadline}
-                  <br />
-                  {person.location}
-                  <div className="skills">
-                    {person.skills.map((skill, i) => (
-                      <span key={i} className="skill-badge">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </li>
-              ))}
-            </ul>
-          )}
-
-          {/* Show instructions when nothing has been searched */}
-          {!noResults && results.length === 0 && !emptySearch && !loading && (
-            <p>Type a name and click search to see results.</p>
-          )}
-        </div>
-      </main>
+            {/* Show instructions when nothing has been searched */}
+            {!noResults && results.length === 0 && !emptySearch && !loading && (
+              <p>Type a name and click search to see results.</p>
+            )}
+          </div>
+        </main>
+      </div>
     </div>
   );
 }
 
 export default App;
-
+// This is the main App component that handles searching and displaying results

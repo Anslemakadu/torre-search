@@ -103,6 +103,13 @@ header h1 {
   animation: spin 1s linear infinite;
 }
 
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+
 @keyframes spin {
   to {
     transform: rotate(360deg);
