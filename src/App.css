@@ -11,6 +11,7 @@ body {
   min-height: 100vh;
 }
 
+/*  This wraps the entire React App */
 .app-container {
   text-align: center;
   width: 90%;
@@ -34,6 +35,7 @@ header h1 {
   margin-bottom: 20px;
 }
 
+/*  Input stays compact and responsive on desktop */
 .search-bar input {
   flex: 1 1 200px;
   padding: 10px;
@@ -42,8 +44,11 @@ header h1 {
   border: 1px solid #333;
   background-color: #1e1e1e;
   color: #fff;
+  width: auto; /* ⛑ Fix: Prevents 100% width from leaking onto desktop */
+  max-width: 100%;
 }
 
+/*  Button matches layout and look */
 .search-bar button {
   padding: 10px 16px;
   font-size: 1rem;
@@ -55,6 +60,7 @@ header h1 {
   transition: background-color 0.3s ease;
 }
 
+/*  Button hover effect */
 .search-bar button:hover {
   background-color: #0097a7;
   transform: scale(1.05);
@@ -95,7 +101,7 @@ header h1 {
   background-color: #00bcd4;
 }
 
-/*  Error and Loader  */
+/*  Error and Loader Styles */
 .error-text {
   color: #f44336;
 }
@@ -116,30 +122,32 @@ header h1 {
   }
 }
 
-/*  Main Container Styling  */
+/*  Main Container Styling */
 .container {
   max-width: 700px;
   margin: 0 auto;
   padding: 1rem;
 }
 
+/* 🔧 Mobile Responsiveness Fixes */
 @media (max-width: 600px) {
-  /* Make results section centered */
+  /* Center everything for smaller viewports */
   .results {
     text-align: center;
   }
 
-  /* But keep result list items readable and aligned left */
+  /* But don't center individual items */
   .results li {
     text-align: left;
   }
 
-  /* Make input and button go full width on narrow screens */
+  /* Stack search bar items vertically */
   .search-bar {
     flex-direction: column;
     align-items: center;
   }
 
+  /* Now we give input and button full width safely for mobile only */
   .search-bar input,
   .search-bar button {
     width: 100%;
